@@ -5,6 +5,7 @@ dotenv.config();
 const port = process.env.PORT;
 
 app.get('/', (req, res) => {
+  console.log('Request is :',req);
   res.send('ExpressJS Server!!')
 })
 
