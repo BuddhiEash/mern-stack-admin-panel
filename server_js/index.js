@@ -12,13 +12,11 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
   });
 
-connection.connect();
-
-connection.query('SHOW DATABASES', (err, rows, fields) => {
-    if (err) throw err
-  
-    console.log('The solution is: ', rows)
-  })
+connection.query("SELECT name FROM tbl_user", function (err, result, fields) {
+  if (err) throw err;
+  console.log("Result is : ");
+  console.log(result[0].name);
+});
   
 connection.end()
 
