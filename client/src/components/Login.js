@@ -1,3 +1,17 @@
+import axios from "axios";
+
+const response = async () => {
+    try {
+        return await axios.get(`http://localhost:8080/`);
+    } catch (error) {
+        console.log(`Error : `, error);
+    }
+}
+
+const responseData = response();
+// const responseData = await axios.get(`http://localhost:8080/`, { headers: {"Access-Control-Allow-Origin": "*"}});
+console.log('DATA : ', responseData);
+
 export default function Login() {
 return (
     <main class="container-fluid login-page">
