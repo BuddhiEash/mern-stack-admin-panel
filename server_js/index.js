@@ -1,29 +1,25 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const dotenv = require('dotenv');
-dotenv.config();
-const mysql = require('mysql');
-const app_port = process.env.APP_PORT;
+import dotenv from 'dotenv'
+dotenv.config()
+import mysql from 'mysql2'
+const app_host = process.env.APP_HOST
+const app_port = process.env.APP_PORT
 
-const connection = mysql.createConnection({
+const connectionPool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME
-  });
+  }).promise()
 
-connection.query("SELECT name FROM tbl_user", function (err, result, fields) {
-  if (err) throw err;
-  console.log("Result is : ");
-  console.log(result[0].name);
-});
-  
-connection.end()
+const query = `SELECT name FROM tbl_user`
+const userName = await connectionPool.query(query)
 
 app.get('/', (req, res) => {
-  res.send('ExpressJS Server!!')
+  res.send(`Hello ExpressJS Server!! I'm ` + userName[0][0].name)
 })
 
 app.listen(app_port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${app_port}`)
+  console.log(`⚡️[server]: Server is running at ${app_host + app_port}`)
 })
