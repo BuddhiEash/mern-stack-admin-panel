@@ -1,8 +1,9 @@
 import express from 'express'
-const app = express()
 import dotenv from 'dotenv'
-dotenv.config()
 import mysql from 'mysql2'
+import bcrypt from 'bcrypt'
+const app = express()
+dotenv.config()
 const app_host = process.env.APP_HOST
 const app_port = process.env.APP_PORT
 
