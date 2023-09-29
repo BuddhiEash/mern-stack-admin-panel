@@ -8,4 +8,4 @@ const user = () => {
     return userName[0][0].name
 }
 
-export default user
+export { user }

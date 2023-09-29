@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import user from './components/user.js'
+import { user } from './components/user.js'
 
 const app = express()
 dotenv.config()
