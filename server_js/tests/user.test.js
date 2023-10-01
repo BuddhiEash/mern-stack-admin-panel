@@ -1,5 +1,5 @@
-const user = require('../components/user.js');
+import { user } from '../components/user.js'
 
 test('user returns username', () => {
-    expect(user()).toBe('Some text');
+    expect(user()).toBe('Some text')
 });
