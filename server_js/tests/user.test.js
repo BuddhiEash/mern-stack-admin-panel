@@ -1,5 +1,6 @@
 import dbConnection from '../components/dbconnection'
 
+// Test case for async/await
 it('works with async/await', async () => {
     expect.assertions(1)
     const mysqlConnection = dbConnection.getMysql()
