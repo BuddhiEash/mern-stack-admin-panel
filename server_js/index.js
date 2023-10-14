@@ -8,7 +8,7 @@ const app_host = process.env.APP_HOST
 const app_port = process.env.APP_PORT
 
 app.get('/', (req, res) => {
-  res.send(`Hello ExpressJS Server!! I'm from Node environment` + user())
+  res.send(`Hello ExpressJS Server!! I'm from Node environment, and my name is : ` + user())
 })
 
 app.listen(app_port, () => {
