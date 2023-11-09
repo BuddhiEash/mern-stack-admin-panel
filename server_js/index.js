@@ -9,6 +9,7 @@ const app_host = process.env.APP_HOST
 const app_port = process.env.APP_PORT
 
 app.get(routes().home, async (req, res) => {
+  res.header('Access-Control-Allow-Origin', "http://localhost:3000")
   res.send(`Hello ExpressJS Server!! I'm from Node environment, and my name is : ` + await user())
 })
 
