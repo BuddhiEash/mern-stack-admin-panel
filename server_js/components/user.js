@@ -11,7 +11,8 @@ const user = async () => {
 
 const login = async (username, password) => {
     try {
-        const query = `SELECT id FROM tbl_user WHERE username = '${username}' AND password = '${password}'`
+        const query = `SELECT id FROM tbl_user WHERE username = '${username}' 
+        AND password = '${password}'`
         let id = await mysqlConnection.query(query)
         id = id[0][0].id
         return id ? true : false   
